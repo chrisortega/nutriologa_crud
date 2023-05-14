@@ -1,0 +1,24 @@
+
+<table class="table table-striped">
+<thead>
+
+</thead>
+<tbody *ngFor="let cita of citas">
+    <tr   routerLink="/detallecita" [queryParams]="{id:cita.idi}">
+        <td>{{cita.idi}}</td>
+        <td>{{cita.fecha}}</td>
+
+    </tr>
+</tbody>
+
+</table>
+
+<div style="width: 100%;">
+  <h5 class="font-weight-normal">Progreso en biometricos</h5>
+  <canvas baseChart
+        [data]="data"
+        [options]="options"
+        [type]="'line'">
+  </canvas>
+  </div>
+

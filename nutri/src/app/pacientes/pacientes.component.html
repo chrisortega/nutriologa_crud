@@ -1,0 +1,21 @@
+
+
+
+
+
+  <button class="btn btn-sm btn-success" routerLink="/registrar" style="margin-bottom: 5px;">Registrar nuevo paciente</button>  
+
+  <table class="table table-sm table-striped">
+    <thead>
+      <th>Ultima fOTO</th>
+      <th>Nombre</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paciente of pacientes;" routerLink="/paciente"  [queryParams]="{id:paciente.idi}">
+        <td><img src="/assets/pacientes/{{paciente.idi}}.jpg"  height="50px" class="card-img-top" alt="..."></td>
+        <td> <span class="card-title"> {{paciente.name}}</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+

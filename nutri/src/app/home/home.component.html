@@ -1,0 +1,15 @@
+<div class="container" *ngIf="isAuth">
+  <div class="row">
+
+  <div class="col-md-7">
+    <app-registrar-paciente></app-registrar-paciente>
+  </div>
+  <div class="col-md-5">
+    
+    <app-admin-citas></app-admin-citas>
+  </div>
+</div>
+</div>
+
+  <button *ngIf="!isAuth" (click)="login()" class="btn btn-outline-success">Authenticate</button>
+  

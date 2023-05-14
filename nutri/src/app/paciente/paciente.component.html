@@ -1,0 +1,77 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-6">
+        <div class="mb-2">
+          <img class="w-50" src="/assets/pacientes/{{idi}}.jpg" alt="">
+        </div>
+        <div class="mb-2 d-flex">
+          <h4 class="font-weight-normal">{{paciente.name}}</h4>
+          <div class="social d-flex ml-auto">
+            
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-muted mr-1">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-muted">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        <div class="mb-2">
+          <ul class="list-unstyled">
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Nombre </span>
+              <label class="media-body">{{paciente.name}}</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Edad: </span>
+              <label class="media-body">40  años</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Contacto: </span>
+              <label class="media-body">789 456 1230</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Email: </span>
+              <label class="media-body">juan@technol.com</label>
+            </li>
+            <li class="media">
+              <span class="w-25 text-black font-weight-normal">Location: </span>
+              <label class="media-body">Tijuana</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6 pl-xl-3">
+        <h5 class="font-weight-normal">Notas de ultima cita</h5>
+      
+
+        <ul class="list list-unstyled mb-3">
+          <li class="text-secondary font-weight-normal mb-1">
+            <span class="ti-arrow-right pr-1 text-primary"></span>
+           Notas de ultima cita
+          </li>
+  
+        </ul>
+        
+       
+        <div class="mb-2 mt-2 pt-1">
+          <h5 class="font-weight-normal">Citas Pasadas <a routerLink="/nuevacita" [queryParams]="{paciente_id:idi}" class="btn btn-sm btn-success">Crear Cita</a></h5>
+        </div> 
+               
+        <div class="py-1">
+            
+            <app-citas [idpaciente]="idi"></app-citas>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+                 
