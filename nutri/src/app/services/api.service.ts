@@ -60,6 +60,10 @@ export class ApiService {
   getCitasPaciente(id:number){
     return this.http.get<any>(this.api+'/api/cita?paciente_idi='+String(id))
   }
+  getCitas(){
+    return this.http.get<any>(this.api+'/api/cita')
+  }
+
 
   getPacientes(){
     this.httpOptions.headers.append("Token" , String(this.getToken()))

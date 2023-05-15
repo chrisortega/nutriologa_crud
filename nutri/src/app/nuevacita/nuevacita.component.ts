@@ -12,8 +12,11 @@ import { ApiService } from '../services/api.service';
 })
 export class NuevacitaComponent {
 
-idi:number | undefined
+
+idi:number  = 0 
+paciente:Paciente | undefined
 pacientes:Paciente[] = []
+citas:Array<any> = []
 horarios:String[] = [
   '8:00',
   '9:00',
@@ -24,22 +27,60 @@ horarios:String[] = [
   '14:00',
   '15:00'
 ]
+citasPaciente:Array<any> = []
+
 constructor(private route: ActivatedRoute,private api:ApiService) {}
+
+currentDate = new Date()
+
+buscaPaciente(){
+    // for-of loop to iterate through the array
+    for (let num of this.pacientes) {
+      // if searchElement matches to the current element, print the index
+      
+      if (num.idi ===  Number(this.idi) ) {
+         this.paciente  = num
+      }
+      
+      
+   }
+}
+checkCitas(){
+  
+
+
+ 
+this.buscaPaciente()
+
+  this.api.getCitasPaciente(this.idi).subscribe(data=>{
+    this.citasPaciente = data
+  })
+}
+
+converCitaDate(fecha: any): Date{
+  return new Date(fecha)
+}
 ngOnInit(){
 
         this.route.queryParams
         .subscribe(params => {
           console.log(params); // { orderby: "price" }
           this.idi = params['paciente_id']    
-                
+          
+          
         }
       );
-
+        
+      this.api.getCitas().subscribe(data=>this.citas = data)
         this.api.getPacientes().subscribe(data =>
           {
-            console.log(data)
+            
             this.pacientes = data
+            this.buscaPaciente()
           })
+          
+
+        
 }
   
 }
